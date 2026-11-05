@@ -36,7 +36,7 @@ export const FACTS = {
     { symbol: "SOL", kind: "native", mint: null, note: null },
     { symbol: "IDLEMINE", kind: "SPL", mint: "BjcRmwm8e25RgjkyaFE56fc7bxRgGPw96JUkXRJFEroT", note: "1:1 into IDLE credit" },
   ],
-  stage: "alpha" as "alpha" | "beta",
+  stage: "alpha" as "alpha" | "beta", // drives vIDLE vs IDLE credit unit, not the product status label
   idleChartUrl: "https://dexscreener.com/solana/aezjouacnspmyhhrnbfknjl8oibdw6ghtrmm7tzgbfca",
   games: [
     { slug: "territorycontrol", name: "Territory Control", input: "obs_0: [5, 40, 40]", output: "continuous_actions: [3]", format: "ONNX" },

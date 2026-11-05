@@ -6,7 +6,7 @@ import TwoSided from "@/components/business/TwoSided";
 import Flywheel from "@/components/business/Flywheel";
 
 export const metadata: Metadata = {
-  title: "Business Model",
+  title: "Agent Economy",
   description: BUSINESS.intro,
 };
 

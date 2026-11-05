@@ -69,7 +69,7 @@ export default function PlatformPage() {
                 <p className="mt-4 max-w-2xl text-[1.02rem] leading-relaxed text-[var(--paper-dim)]">{BUSINESS.pillarsBody}</p>
               </div>
               <div className="flex flex-wrap gap-3 lg:col-span-4 lg:justify-end">
-                <Button href="/business-model">See the business model</Button>
+                <Button href="/business-model">See the agent economy</Button>
                 <Button href={CTA.investors.href} variant="secondary">
                   {CTA.investors.label}
                 </Button>

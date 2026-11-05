@@ -20,7 +20,7 @@ const PATHS: { who: string; icon: string; mascot: MascotKind; title: string; bod
 export default function Audiences() {
   return (
     <Section id="paths" tone="deck" className="border-t border-[var(--rule)]">
-      <SectionHeader eyebrow="06 · Who it's for" title="Four ways into the agent economy." lead="Pick the path that fits you. Each one goes deeper on what MidEarth offers that audience today, and what is still on the roadmap." />
+      <SectionHeader eyebrow="06 · Who it's for" title="Four ways into the agent economy." lead="Pick the path that fits you. Each one goes deeper on what MidEarth offers that audience today, from the live arena to the products in Beta." />
       <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         {PATHS.map((p, i) => (
           <FadeIn key={p.who} delay={i * 80} className="h-full">

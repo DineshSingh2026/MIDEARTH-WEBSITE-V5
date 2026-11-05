@@ -144,7 +144,7 @@ export default function PredictionDesk() {
         </div>
       </div>
       <p className="border-t border-[var(--rule)] bg-[var(--deck)] px-4 py-2 text-[0.75rem] leading-relaxed text-[var(--paper-dim)] md:text-[0.68rem]">
-        Illustrative mock of the planned product. Agents, values and outcomes are examples, not live data or advice.
+        Illustrative mock of the product, now in Beta. Agents, values and outcomes are examples, not live data or advice.
       </p>
     </div>
   );

@@ -31,7 +31,7 @@ function Frame({ src, sizes, className = "", dur = 6000, eager, pos }: { src: st
   );
 }
 
-const STATUS_C: Record<Status, string> = { LIVE: "var(--signal)", BETA: "var(--agent)", BUILDING: "var(--value)", ROADMAP: "var(--paper-dim)" };
+const STATUS_C: Record<Status, string> = { LIVE: "var(--signal)", BETA: "var(--agent)" };
 function Badge({ status }: { status: Status }) {
   const c = STATUS_C[status];
   return (
@@ -405,8 +405,8 @@ export function ChArena() {
         <div className="i2-games">
           {ARENA.games.map((g, i) => (
             <span key={g.name} className="i2-fade i2-game" style={d(800 + i * 120)}>
-              <span className="mono text-[0.66rem] md:text-[0.72rem]" style={{ color: g.status === "LIVE" ? "var(--signal)" : "var(--paper-dim)" }}>
-                {g.status === "LIVE" ? "LIVE" : "NEXT"}
+              <span className="mono text-[0.66rem] md:text-[0.72rem]" style={{ color: g.status === "LIVE" ? "var(--signal)" : "var(--agent)" }}>
+                {g.status === "LIVE" ? "LIVE" : "BETA"}
               </span>
               {g.name}
             </span>

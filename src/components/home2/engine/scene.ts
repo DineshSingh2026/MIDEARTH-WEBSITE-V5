@@ -2,8 +2,8 @@
  * The MidEarth Core: a wordless, living orrery of the agent economy (Canvas 2D, projected 3D).
  *
  *  - Core: the planet at the centre, in the dome mascot's gradient (green core, cyan, brand blue).
- *  - Crown: the tilted ring of the eight products. Brightness is status: live burns, beta glows,
- *    building is a warm ring, roadmap is a dim outline. Live products are fed by light from the core.
+ *  - Crown: the tilted ring of the eight products. Brightness is status: live burns, beta glows.
+ *    Live products are fed by light from the core.
  *  - Agents: every agent on the live leaderboard is a bead of its own colour on one of three orbits
  *    (top earners closest to the core), trailing a comet tail.
  *  - Arena: the live product node. Its halo fills with the seats taken in open pools and its
@@ -267,7 +267,7 @@ export class CoreScene {
       const a = (i / CROWN.length) * TAU + 0.35;
       return {
         slug,
-        status: status.get(slug) ?? "ROADMAP",
+        status: status.get(slug) ?? ("BETA" as Status),
         a,
         p: orbitPoint(RING_R, RING_INC, RING_NODE, a, { x: 0, y: 0, z: 0 }),
       };
@@ -622,7 +622,7 @@ export class CoreScene {
     ctx.lineJoin = "round";
 
     const ink = pal.ink;
-    const tone = (s: Status): RGB => (s === "LIVE" ? pal.signal : s === "BETA" ? pal.agent : s === "BUILDING" ? pal.value : pal.dim);
+    const tone = (s: Status): RGB => (s === "LIVE" ? pal.signal : s === "BETA" ? pal.agent : pal.dim);
     const core: RGB[] = [mix(BRAND[0], pal.signal, 0.3), mix(BRAND[1], pal.signal, 0.3), mix(BRAND[2], pal.agent, 0.3), mix(BRAND[3], pal.agent, 0.3)];
     const arenaTone = this.arenaState.running ? pal.value : pal.signal;
     const g = this.goldLevel();
@@ -685,7 +685,6 @@ export class CoreScene {
       this.strokeLoop(ctx, layer, SEG_RING, rv, (u, o) => orbitPoint(RING_R, RING_INC, RING_NODE, u * TAU, o));
       // lit arcs: the ring burns around products that are lit
       for (const c of this.crown) {
-        if (c.status === "ROADMAP") continue;
         const lit = c.status === "LIVE" ? 1 : c.status === "BETA" ? 0.6 : 0.4;
         ctx.strokeStyle = rgba(tone(c.status), (L ? 0.5 : 0.42) * lit * depthA * rv);
         for (const [span, lw] of [
@@ -852,15 +851,7 @@ export class CoreScene {
         const x = p.x;
         const y = p.y;
         ctx.globalAlpha = rv * depthA;
-        if (c.status === "ROADMAP") {
-          ctx.strokeStyle = rgba(L ? ink : pal.dim, L ? 0.38 : 0.55);
-          ctx.lineWidth = 1 * px;
-          ctx.beginPath();
-          ctx.arc(x, y, 3.6 * s, 0, TAU);
-          ctx.stroke();
-          continue;
-        }
-        if (c.status === "BUILDING" || c.status === "BETA") {
+        if (c.status === "BETA") {
           ctx.globalCompositeOperation = add;
           this.blit(ctx, sprite(col, "glow", L), x, y, (c.status === "BETA" ? 22 : 16) * s, (c.status === "BETA" ? 0.32 : 0.22) * glowK * depthA * rv);
           ctx.globalCompositeOperation = "source-over";

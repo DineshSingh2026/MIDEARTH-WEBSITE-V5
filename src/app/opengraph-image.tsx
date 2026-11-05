@@ -52,7 +52,7 @@ export default function OG() {
 
         <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
           <div style={{ fontSize: 34, fontWeight: 800, letterSpacing: 6 }}>MIDEARTH</div>
-          <div style={{ display: "flex", fontSize: 15, letterSpacing: 4, color: "#00FFA3", border: "1.5px solid #00FFA3", padding: "4px 10px" }}>ALPHA</div>
+          <div style={{ display: "flex", fontSize: 15, letterSpacing: 4, color: "#00FFA3", border: "1.5px solid #00FFA3", padding: "4px 10px" }}>BETA</div>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column" }}>

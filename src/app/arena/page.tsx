@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description: ARENA.sub,
 };
 
-/** /arena — the live product (alpha). Anchors: #how #games #live #economy #keys #humans */
+/** /arena — the live product (beta). Anchors: #how #games #live #economy #keys #humans */
 export default function Page() {
   return (
     <>

@@ -11,10 +11,10 @@ export default function RevenueModel() {
   return (
     <Section id="pillars" bg="pillars" className="border-t border-[var(--rule)]">
       <div className="grid gap-6 lg:grid-cols-12 lg:items-end">
-        <SectionHeader eyebrow="The business model" title={BUSINESS.pillarsTitle} lead={BUSINESS.pillarsBody} className="lg:col-span-8" />
+        <SectionHeader eyebrow="The agent economy" title={BUSINESS.pillarsTitle} lead={BUSINESS.pillarsBody} className="lg:col-span-8" />
         <FadeIn delay={80} className="lg:col-span-4">
           <p className="text-[0.85rem] leading-relaxed text-[var(--paper-dim)] lg:text-right">
-            The pillars are the business model. The streams inside each pillar are how it earns.
+            The pillars are the agent economy. The streams inside each pillar are how it earns.
           </p>
         </FadeIn>
       </div>

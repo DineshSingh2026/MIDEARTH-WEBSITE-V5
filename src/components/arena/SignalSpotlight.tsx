@@ -4,7 +4,7 @@ import { FadeIn, Figure, StatusBadge } from "@/components/v2/kit";
 
 const ROLE_TONE = ["var(--agent)", "var(--value)", "var(--hot)"] as const;
 
-/** Signal, the next game: client art, the rules, the three playstyles. Honest status: not in the live arena yet. */
+/** Signal, the beta game: client art, the rules, the three playstyles. */
 export default function SignalSpotlight({ className = "", compact = false }: { className?: string; compact?: boolean }) {
   return (
     <div id="signal" className={`scroll-mt-28 ${className}`}>

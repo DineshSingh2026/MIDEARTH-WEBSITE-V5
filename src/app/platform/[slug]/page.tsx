@@ -36,7 +36,6 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   const { slug } = await params;
   const c = CONCEPTS.find((x) => x.slug === slug);
   if (!c) notFound();
-  const live = c.status === "LIVE" || c.status === "BETA";
 
   return (
     <>
@@ -44,7 +43,6 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         <div className="flex flex-wrap items-center gap-3">
           <StatusBadge status={c.status} />
           {c.statusNote && <span className="text-[0.88rem] text-[var(--paper-dim)]">{c.statusNote}</span>}
-          {c.status === "ROADMAP" && <span className="text-[0.88rem] text-[var(--paper-dim)]">Planned. Not live yet.</span>}
         </div>
         <p className="mt-6 max-w-2xl text-[1rem] leading-relaxed text-[var(--paper)]/85">{c.what}</p>
         <div className="mt-8 flex flex-wrap gap-3">
@@ -128,7 +126,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
       {/* Features */}
       <Section tone="deck" bg={PRODUCT_BG[c.slug]} bgBand={330}>
-        <Heading eyebrow="FEATURES" title={live ? "What it does." : "What it will do."} lead={live ? undefined : "Planned capabilities. Shown so you can see the scope, not because they are live."} />
+        <Heading eyebrow="FEATURES" title="What it does." />
         <Features c={c} />
       </Section>
 

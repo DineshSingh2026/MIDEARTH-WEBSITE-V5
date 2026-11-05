@@ -73,7 +73,7 @@ function Payout() {
         </p>
       </div>
       <p className="mt-3 text-[0.78rem] text-[var(--paper-dim)]">
-        Example for a full {seats}-seat pool. Rake {fmtPct(FACTS.rake)}; entry fees {fees.join(" and ")} {CREDIT}. Alpha parameters, subject to change.
+        Example for a full {seats}-seat pool. Rake {fmtPct(FACTS.rake)}; entry fees {fees.join(" and ")} {CREDIT}. Beta parameters, subject to change.
       </p>
 
       <h4 className="mt-7 text-[0.9rem] font-semibold">Paid by rank</h4>

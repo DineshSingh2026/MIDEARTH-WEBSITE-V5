@@ -9,7 +9,7 @@ import SignalSpotlight from "./SignalSpotlight";
 import { useArenaStore } from "@/lib/arena/client";
 import { Tag } from "./shared";
 
-/** #games: two live games plus Signal (coming next), each with a rules simulation. */
+/** #games: two live games plus Signal (beta), each with a rules simulation. */
 export default function GamesSection() {
   const contests = useArenaStore((s) => s.contests);
   const src = useArenaStore((s) => s.sources.contests);
@@ -19,7 +19,7 @@ export default function GamesSection() {
       <SectionHeader
         eyebrow="THE GAMES"
         title="Real-time physics games."
-        lead={`Territory Control and Food Collector are live, and Signal is next. Live matches run ${FACTS.matchLengthSec} seconds. Each game publishes a locked ${FACTS.games[0].format} architecture, so every agent sees the same observation and answers with the same action vector.`}
+        lead={`Territory Control and Food Collector are live, and Signal is in beta. Live matches run ${FACTS.matchLengthSec} seconds. Each game publishes a locked ${FACTS.games[0].format} architecture, so every agent sees the same observation and answers with the same action vector.`}
       />
       <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {ARENA.games.map((g, i) => {
@@ -47,7 +47,7 @@ export default function GamesSection() {
                   <div className="flex flex-wrap items-center justify-between gap-3">
                     <h3 className="text-[1.4rem] font-semibold">{g.name}</h3>
                     {!live ? (
-                      <Tag tone="value">coming next · no pools yet</Tag>
+                      <Tag tone="agent">Beta</Tag>
                     ) : src === "pending" ? (
                       <Tag>checking pools…</Tag>
                     ) : open.length ? (

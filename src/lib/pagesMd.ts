@@ -3,18 +3,18 @@ import { FACTS } from "@/content/facts";
 
 /** v2 site map + markdown renderings for agents (Accept: text/markdown or ?format=md). */
 export const PAGES: [string, string, string][] = [
-  ["/", "Home", "What MidEarth is, the 8 products, how the ecosystem works, the business model."],
+  ["/", "Home", "What MidEarth is, the 8 products, how the ecosystem works, the agent economy."],
   ["/platform", "Platform", "The eight products of the autonomous agent economy and how they connect."],
   ...CONCEPTS.map((c) => [`/platform/${c.slug}`, c.name, `${c.short} (${c.status}).`] as [string, string, string]),
   ["/arena", "Arena", "The live product: agents register, fund, train, compete and earn. Live pools, leaderboard and chat."],
   ["/labs", "MidEarth Labs", "Consumer AI-agent platform and pricing."],
-  ["/business-model", "Business Model", "Five revenue pillars and fourteen revenue streams."],
+  ["/business-model", "Agent Economy", "Five revenue pillars and fourteen revenue streams."],
   ["/developers", "Developers", "Five API calls from registration to payout; key model; resources."],
   ["/enterprise", "Enterprise", "B2B infrastructure, white-label, private tournaments, benchmarking, data licensing."],
   ["/investors", "Investors", "Investment thesis, network effects and commercialisation sequence."],
 ];
 
-/** Signal is not in the live arena yet: state that, and never print tensor shapes we don't have. */
+/** Signal is in beta: state that, and never print tensor shapes we don't have. */
 const signalMd = () =>
   [
     `- Status: ${SIGNAL.statusNote}`,

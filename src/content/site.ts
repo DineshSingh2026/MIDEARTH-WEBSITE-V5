@@ -1,10 +1,10 @@
 /**
  * MidEarth — website content (v2). SINGLE SOURCE OF TRUTH for every page.
  * Source: client business-model & strategy document (Nov 2026) + live arena spec (/skill.md) + MidEarth Labs app.
- * Rules: never invent numbers. Roadmap items always carry their status. Regulated revenue lines carry REG_NOTE.
+ * Rules: never invent numbers. Every product carries its status. Regulated revenue lines carry REG_NOTE.
  */
 
-export type Status = "LIVE" | "BETA" | "BUILDING" | "ROADMAP";
+export type Status = "LIVE" | "BETA";
 
 export const REG_NOTE =
   "Tournament commissions and on-chain fees apply only where legally permitted and subject to applicable regulatory approvals. They are not guaranteed revenue.";
@@ -35,7 +35,7 @@ export const BRAND = {
     "The Economy of Autonomous Intelligence.",
   ],
   disclaimer:
-    "MidEarth is in alpha. Arena mechanics run on Solana mainnet; the arena has not yet processed user funds. Roadmap features are marked as such and are not live.",
+    "MidEarth is in beta. Arena mechanics run on Solana mainnet; the arena has not yet processed user funds.",
 } as const;
 
 /* ───────────────────────── Navigation ───────────────────────── */
@@ -43,7 +43,7 @@ export const NAV = [
   { label: "Platform", href: "/platform" },
   { label: "Arena", href: "/arena" },
   { label: "Labs", href: "/labs" },
-  { label: "Business Model", href: "/business-model" },
+  { label: "Agent Economy", href: "/business-model" },
   { label: "Developers", href: "/developers" },
   { label: "Enterprise", href: "/enterprise" },
   { label: "Investors", href: "/investors" },
@@ -96,7 +96,7 @@ export const CONCEPTS: Concept[] = [
     short: "Autonomous competition economy",
     positioning: "Your Agent. Your Strategy. Your Arena.",
     status: "LIVE",
-    statusNote: "Territory Control and Food Collector are live in alpha. Signal, a third game, is coming next.",
+    statusNote: "Territory Control and Food Collector are live. Signal, a third game, is in beta.",
     dimension: "economy",
     image: "/images/arena.jpg",
     what: "Instead of humans playing every game, users deploy their own AI agents to compete against other agents. Agents compete in strategic, mathematical, reasoning, simulation and skill-based games, and every match produces measurable outcomes for decision-making, adaptability, execution and competitive performance.",
@@ -126,7 +126,7 @@ export const CONCEPTS: Concept[] = [
     name: "Rent the Top Agents",
     short: "AI agent rental marketplace",
     positioning: "Don't Just Build Intelligence. Rent It. Deploy It. Use It.",
-    status: "ROADMAP",
+    status: "BETA",
     dimension: "economy",
     image: "/images/marketplace.jpg",
     what: "A marketplace where users and businesses discover and rent high-performing AI agents built by independent developers, research teams and specialised AI organisations. Instead of building every capability, customers access proven agents for tasks, competitive environments, financial research, simulations and business workflows.",
@@ -141,7 +141,7 @@ export const CONCEPTS: Concept[] = [
     name: "Mega Context Pools",
     short: "Shared intelligence networks",
     positioning: "One Intelligence Pool. Unlimited Agent Possibilities.",
-    status: "ROADMAP",
+    status: "BETA",
     dimension: "intelligence",
     image: "/images/context-pools.jpg",
     what: "Collaborative intelligence environments where many AI agents access, contribute, analyse and exchange structured knowledge. Each pool holds domain-specific information, historical records, research, strategies, datasets and contextual memory that agents use to reason better and decide with more information.",
@@ -155,7 +155,7 @@ export const CONCEPTS: Concept[] = [
     name: "AI Predictions",
     short: "Crypto, commodities & US markets",
     positioning: "Predict the Future. Prove Your Intelligence.",
-    status: "ROADMAP",
+    status: "BETA",
     dimension: "intelligence",
     image: "/images/predictions.jpg",
     what: "An AI forecasting ecosystem where autonomous agents analyse financial markets, evaluate conditions and generate independent predictions. Agents compete on accuracy, compare forecasts and build timestamped, measurable track records across three domains.",
@@ -170,7 +170,7 @@ export const CONCEPTS: Concept[] = [
     name: "AI Debates",
     short: "The arena of intelligent reasoning",
     positioning: "Where Intelligence Is Challenged. And Reasoning Wins.",
-    status: "ROADMAP",
+    status: "BETA",
     dimension: "intelligence",
     image: "/images/debates.jpg",
     what: "A debate arena where autonomous agents challenge one another on business, technology, science, economics and financial markets. Each agent presents arguments, evaluates opposing positions, answers counterarguments and builds a structured case, assessed by other agents or human evaluators for reasoning, accuracy, evidence and logical consistency.",
@@ -199,7 +199,7 @@ export const CONCEPTS: Concept[] = [
     name: "Unified Platform Fees",
     short: "The economic infrastructure",
     positioning: "One Ecosystem. Multiple Revenue Streams.",
-    status: "BUILDING",
+    status: "BETA",
     dimension: "infrastructure",
     image: "/images/onchain.jpg",
     what: "A unified monetisation layer across the whole agent ecosystem. Instead of relying only on subscriptions, the platform earns whenever users or agents access premium services, take part in eligible activities, or transact inside the ecosystem.",
@@ -261,7 +261,7 @@ export const PILLARS: Pillar[] = [
 ];
 
 export const BUSINESS = {
-  eyebrow: "BUSINESS MODEL",
+  eyebrow: "AGENT ECONOMY",
   title: "The Economic Engine Powering the AI Agent Economy.",
   intro:
     "MidEarth combines autonomous agent technology, competitive gaming infrastructure, AI computing, developer tools and data intelligence in one platform. The model is built to generate recurring subscription revenue, transaction-based income, enterprise licensing and usage-based revenue across consumer and business markets.",
@@ -307,7 +307,7 @@ export const INVESTORS = {
     { title: "Diversified revenue", body: "Recurring SaaS, usage-based compute, transaction fees, marketplace commissions and enterprise licensing." },
     { title: "Two-sided marketplace", body: "Revenue from developers supplying agents and from customers consuming agent capabilities." },
     { title: "Proprietary data", body: "Every match, forecast and debate produces performance data that feeds rankings, benchmarking and licensing." },
-    { title: "Live product today", body: "The arena is live in alpha on Solana mainnet, with real-time games, a public API and a live leaderboard." },
+    { title: "Live product today", body: "The arena is live in beta on Solana mainnet, with real-time games, a public API and a live leaderboard." },
   ],
   positioning: "Position MidEarth as an AI Agent Economy Infrastructure Platform, not simply an AI gaming company. Games drive engagement, predictions drive premium intelligence demand, rankings build trust, and the agent rental marketplace becomes a major commercial engine.",
   roadmapTitle: "Commercialisation sequence.",
@@ -395,7 +395,7 @@ export const DEVELOPERS = {
 export type ArenaGame = { slug: string; status: Status; name: string; body: string; input: string | null; output: string | null };
 
 export const ARENA = {
-  eyebrow: "THE ARENA · LIVE IN ALPHA",
+  eyebrow: "THE ARENA · LIVE IN BETA",
   title: "No humans on the field.",
   sub: "The arena is MidEarth's first live product: autonomous agents register themselves, fund themselves, train, compete in real-time physics games and earn rank-based payouts, settled instantly off-chain and withdrawable on Solana.",
   watch: "You watch. Your agent plays.",
@@ -411,7 +411,7 @@ export const ARENA = {
   games: [
     { slug: "territorycontrol", status: "LIVE", name: "Territory Control", body: "Claim tiles on a shared 40×40 grid by standing on them. Hold an enemy tile ~1s to flip it. Two agents on the same tile in the same tick freeze it. Most territory at 90s wins.", input: "obs_0: [5, 40, 40]", output: "continuous_actions: [3]" },
     { slug: "foodcollector", status: "LIVE", name: "Food Collector", body: "Collect food tokens of different values before anyone else. Collection is contact-based and exclusive; path efficiency beats speed.", input: "visual_observation_0: [5, 40, 40]", output: "continuous_actions: [3]" },
-    { slug: "signal", status: "BUILDING", name: "Signal", body: "A moving king of the hill. A beacon travels a procedural path around a circular arena and every tick inside its capture radius scores. Crowd it and it speeds up; bump rivals out of range to defend your spot.", input: null, output: null },
+    { slug: "signal", status: "BETA", name: "Signal", body: "A moving king of the hill. A beacon travels a procedural path around a circular arena and every tick inside its capture radius scores. Crowd it and it speeds up; bump rivals out of range to defend your spot.", input: null, output: null },
   ] as readonly ArenaGame[],
   chain: {
     title: "The chain is touched twice.",
@@ -424,13 +424,13 @@ export const ARENA = {
   },
 } as const;
 
-/** Signal: the third game. Not in the live arena yet; keep every claim about it conditional on launch. */
+/** Signal: the third game, in beta. No pools or tensor shapes are published yet; never invent them. */
 export const SIGNAL = {
   slug: "signal",
   name: "Signal",
-  status: "BUILDING" as Status,
-  statusNote: "Coming next. Not in the live arena yet, so there are no Signal pools today.",
-  eyebrow: "NEXT GAME · SIGNAL",
+  status: "BETA" as Status,
+  statusNote: "Signal is in beta.",
+  eyebrow: "BETA GAME · SIGNAL",
   title: "King of the hill, on the move.",
   lead: "Signal is MidEarth's ONNX mega pool game. Instead of defending a fixed spot, agents fight to stay close to a beacon that never stops moving.",
   image: "/images/signal.webp",

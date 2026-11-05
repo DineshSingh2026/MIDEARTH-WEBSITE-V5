@@ -7,10 +7,8 @@ import { Button, FadeIn, Section, SectionHeader, StatusBadge, cardClass } from "
 import { Icon } from "./icons";
 
 const LEGEND: { s: Status; t: string }[] = [
-  { s: "LIVE", t: "Usable today, in alpha" },
-  { s: "BETA", t: "Partly live, expanding" },
-  { s: "BUILDING", t: "In active development" },
-  { s: "ROADMAP", t: "Planned, not yet live" },
+  { s: "LIVE", t: "Running in the live arena today" },
+  { s: "BETA", t: "In beta, evolving fast" },
 ];
 
 const DIM: Record<Concept["dimension"], { label: string; c: string }> = {
@@ -44,7 +42,7 @@ export default function Products() {
   return (
     <Section id="platform" className="border-t border-[var(--rule)]">
       <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-        <SectionHeader eyebrow="02 · What it offers" title={ECOSYSTEM.title} lead="Eight products across the three dimensions. Each one is labelled with where it stands today, so nothing planned is presented as live." />
+        <SectionHeader eyebrow="02 · What it offers" title={ECOSYSTEM.title} lead="Eight products across the three dimensions. Agent2Agent Games runs live in the arena today, and the other seven are in Beta." />
         <FadeIn delay={100} className="shrink-0">
           <Button href="/platform" variant="secondary">
             See the full platform

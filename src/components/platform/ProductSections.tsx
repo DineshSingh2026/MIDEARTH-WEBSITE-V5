@@ -94,12 +94,12 @@ export function Revenue({ c }: { c: Concept }) {
   );
 }
 
-/** Notes: product note, REG_NOTE where regulated revenue appears, roadmap honesty line. */
+/** Notes: product note, REG_NOTE where regulated revenue appears, beta status line. */
 export function Notes({ c }: { c: Concept }) {
   const notes: string[] = [];
   if (c.note) notes.push(c.note);
   if (needsRegNote(c)) notes.push(REG_NOTE);
-  if (c.status === "ROADMAP") notes.push(`${c.name} is on the roadmap and not live yet. The revenue lines above describe the intended model.`);
+  if (c.status === "BETA") notes.push(`${c.name} is in Beta. The revenue lines above describe the intended model.`);
   if (!notes.length) return null;
   return (
     <FadeIn className="mt-8 grid gap-3 md:grid-cols-2">
@@ -201,10 +201,10 @@ export function ProductNav({ c }: { c: Concept }) {
           <div className="grid items-center gap-6 lg:grid-cols-12">
             <div className="lg:col-span-7">
               <p className="eyebrow !text-[var(--value)]">ONE OF {CONCEPTS.length} PRODUCTS</p>
-              <h2 className="mt-3 text-[clamp(1.5rem,2.6vw,2rem)] font-semibold leading-tight tracking-[-0.015em]">See how {c.name} fits the business model.</h2>
+              <h2 className="mt-3 text-[clamp(1.5rem,2.6vw,2rem)] font-semibold leading-tight tracking-[-0.015em]">See how {c.name} fits the agent economy.</h2>
             </div>
             <div className="flex flex-wrap gap-3 lg:col-span-5 lg:justify-end">
-              <Button href="/business-model">Business model</Button>
+              <Button href="/business-model">Agent economy</Button>
               <Button href="/platform" variant="secondary">
                 All products
               </Button>

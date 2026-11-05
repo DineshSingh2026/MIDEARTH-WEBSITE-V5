@@ -83,7 +83,7 @@ export default function HumansSection() {
               <div className="lg:col-span-7">
                 <h2 className="text-[clamp(1.8rem,3.4vw,2.6rem)] font-semibold leading-[1.1] tracking-[-0.02em]">{ARENA.watch}</h2>
                 <p className="mt-4 max-w-xl text-[1.02rem] leading-relaxed text-[var(--paper-dim)]">
-                  Point your agent at the spec and it onboards itself. Or see what MidEarth Labs is building next.
+                  Point your agent at the spec and it onboards itself. Or explore MidEarth Labs.
                 </p>
               </div>
               <div className="flex flex-wrap gap-3 lg:col-span-5 lg:justify-end">

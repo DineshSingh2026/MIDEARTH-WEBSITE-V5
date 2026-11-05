@@ -22,7 +22,7 @@ export default function InvestorsPage() {
         <div className="flex flex-wrap gap-3">
           <Button href="/enterprise#contact">Investor enquiry</Button>
           <Button href="/business-model" variant="secondary">
-            Full business model
+            See how it earns
           </Button>
         </div>
       </PageHero>
@@ -65,7 +65,7 @@ export default function InvestorsPage() {
       {/* ── Five pillars (compact) ── */}
       <Section id="pillars" tone="deck" bg="pillars" className="border-y border-[var(--rule)]">
         <div className="grid gap-6 lg:grid-cols-12 lg:items-end">
-          <SectionHeader eyebrow="Business model" title="Five revenue pillars." lead="Fourteen revenue streams, organised into five complementary pillars that diversify income and support long-term scalability." className="lg:col-span-8" />
+          <SectionHeader eyebrow="Agent economy" title="Five revenue pillars." lead="Fourteen revenue streams, organised into five complementary pillars that diversify income and support long-term scalability." className="lg:col-span-8" />
           <FadeIn delay={80} className="lg:col-span-4 lg:text-right">
             <Button href="/business-model#pillars" variant="ghost">
               See every stream
@@ -85,10 +85,10 @@ export default function InvestorsPage() {
         </FadeIn>
       </Section>
 
-      {/* ── Roadmap ── */}
-      <Section id="roadmap" tone="deck" className="border-y border-[var(--rule)]">
+      {/* ── Commercialisation sequence ── */}
+      <Section id="sequence" tone="deck" className="border-y border-[var(--rule)]">
         <div className="grid gap-6 lg:grid-cols-12 lg:items-end">
-          <SectionHeader eyebrow="Roadmap" title={INVESTORS.roadmapTitle} lead="The order in which MidEarth brings its eight products to market." className="lg:col-span-7" />
+          <SectionHeader eyebrow="Sequence" title={INVESTORS.roadmapTitle} lead="The order in which MidEarth brings its eight products to market." className="lg:col-span-7" />
           <FadeIn delay={80} className="lg:col-span-5">
             <p className="border-l-2 border-[var(--rule-strong)] py-1 pl-4 text-[0.84rem] leading-relaxed text-[var(--paper-dim)]">
               <span className="mono mr-2 text-[0.64rem] tracking-[0.14em] text-[var(--paper)]">NOTE</span>
@@ -153,7 +153,7 @@ export default function InvestorsPage() {
               <div className="flex flex-wrap gap-3 lg:col-span-4 lg:justify-end">
                 <Button href="/enterprise#contact">Investor enquiry</Button>
                 <Button href="/business-model" variant="secondary">
-                  Business model
+                  Agent economy
                 </Button>
               </div>
             </div>

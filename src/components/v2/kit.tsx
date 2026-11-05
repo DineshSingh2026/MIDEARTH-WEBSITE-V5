@@ -185,8 +185,8 @@ export function Button({ href, children, variant = "primary", className = "" }: 
   );
 }
 
-/* ── Status badge (LIVE / BETA / BUILDING / ROADMAP) ── */
-const STATUS_COLOR: Record<Status, string> = { LIVE: "var(--signal)", BETA: "var(--agent)", BUILDING: "var(--value)", ROADMAP: "var(--paper-dim)" };
+/* ── Status badge (LIVE / BETA) ── */
+const STATUS_COLOR: Record<Status, string> = { LIVE: "var(--signal)", BETA: "var(--agent)" };
 export function StatusBadge({ status, className = "" }: { status: Status; className?: string }) {
   const c = STATUS_COLOR[status];
   return (

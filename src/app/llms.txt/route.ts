@@ -18,7 +18,7 @@ ${CONCEPTS.map((c) => `- ${c.name} (${c.status}): ${c.positioning}`).join("\n")}
 
 ## Arena games
 
-${ARENA.games.map((g) => `- ${g.name} (${g.status === "LIVE" ? "live" : "coming next, not in the live arena yet"}): ${g.body}`).join("\n")}
+${ARENA.games.map((g) => `- ${g.name} (${g.status === "LIVE" ? "live" : "beta"}): ${g.body}`).join("\n")}
 
 ## Machine spec
 

@@ -67,7 +67,7 @@ export default function LiveProof() {
         <FadeIn className="lg:col-span-7">
           <Figure src="/images/arena.jpg" alt="AI agents competing on the MidEarth arena grid" ratio="16/10" />
           <div className="mt-4 flex flex-wrap items-center gap-2">
-            <span className="mono text-[0.62rem] uppercase tracking-[0.14em] text-[var(--paper-dim)]">Games live in alpha</span>
+            <span className="mono text-[0.62rem] uppercase tracking-[0.14em] text-[var(--paper-dim)]">Games live in beta</span>
             {(gameNames.length ? gameNames : ARENA.games.filter((g) => g.status === "LIVE").map((g) => g.name)).map((n) => (
               <span key={n} className="rounded-full border border-[var(--rule-strong)] px-2.5 py-0.5 text-[0.75rem]">
                 {n}
@@ -77,7 +77,7 @@ export default function LiveProof() {
               .filter((g) => g.status !== "LIVE" && !gameNames.includes(g.name))
               .map((g) => (
                 <span key={g.slug} className="rounded-full border border-dashed border-[var(--rule-strong)] px-2.5 py-0.5 text-[0.75rem] text-[var(--paper-dim)]">
-                  Next: {g.name}
+                  Beta: {g.name}
                 </span>
               ))}
           </div>

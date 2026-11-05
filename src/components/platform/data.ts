@@ -15,19 +15,15 @@ export const DIM_TONE: Record<DimKey, string> = {
 export const STATUS_TONE: Record<Status, string> = {
   LIVE: "var(--signal)",
   BETA: "var(--agent)",
-  BUILDING: "var(--value)",
-  ROADMAP: "var(--paper-dim)",
 };
 
 /** Short neutral meaning of each status label. */
 export const STATUS_MEANING: Record<Status, string> = {
-  LIVE: "Running today (alpha)",
-  BETA: "Partly live, still being built",
-  BUILDING: "In active development",
-  ROADMAP: "Planned, not live yet",
+  LIVE: "Running in the live arena today",
+  BETA: "In beta, evolving fast",
 };
 
-export const STATUS_ORDER: Status[] = ["LIVE", "BETA", "BUILDING", "ROADMAP"];
+export const STATUS_ORDER: Status[] = ["LIVE", "BETA"];
 
 export const conceptBySlug = (slug: string) => CONCEPTS.find((c) => c.slug === slug);
 export const conceptsOf = (slugs: readonly string[]) => slugs.map((s) => conceptBySlug(s)).filter((c): c is Concept => !!c);

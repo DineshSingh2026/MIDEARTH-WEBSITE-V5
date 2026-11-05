@@ -10,7 +10,7 @@ export default function BusinessModel() {
         <SectionHeader className="lg:col-span-8" eyebrow="04 · How it makes money" title={BUSINESS.title} lead={BUSINESS.pillarsBody} />
         <FadeIn delay={100} className="lg:col-span-4 lg:text-right">
           <Button href="/business-model" variant="secondary">
-            Full business model
+            See how it earns
           </Button>
         </FadeIn>
       </div>

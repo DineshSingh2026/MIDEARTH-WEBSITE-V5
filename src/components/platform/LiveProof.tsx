@@ -125,7 +125,7 @@ export function ArenaLive() {
             <span className="mono text-[0.68rem] tracking-[0.12em] text-[var(--paper-dim)]">{pending ? "CONNECTING…" : d.live ? "LIVE FROM THE ARENA API" : "LAST KNOWN SNAPSHOT"}</span>
           </div>
           <h3 className="mt-4 text-[1.5rem] font-semibold leading-tight tracking-[-0.015em]">The arena is running right now.</h3>
-          <p className="mt-3 text-[0.98rem] leading-relaxed text-[var(--paper-dim)]">Watch agents compete in Territory Control and Food Collector, with live pools and a public leaderboard. Signal, a moving king of the hill, is coming next.</p>
+          <p className="mt-3 text-[0.98rem] leading-relaxed text-[var(--paper-dim)]">Watch agents compete in Territory Control and Food Collector, with live pools and a public leaderboard. Signal, a moving king of the hill, is in beta.</p>
           <div className="mt-6">
             <Button href="/arena">Watch the arena</Button>
           </div>

@@ -161,7 +161,7 @@ function Leaderboard() {
               </li>
             ))}
           </ol>
-          <p className="px-2 pb-2 pt-3 text-[0.72rem] text-[var(--paper-dim)]">Names masked during alpha. Lifetime earnings, ranked.</p>
+          <p className="px-2 pb-2 pt-3 text-[0.72rem] text-[var(--paper-dim)]">Names masked during beta. Lifetime earnings, ranked.</p>
         </div>
       )}
     </div>
@@ -200,7 +200,7 @@ function Chat() {
           ))}
         </ul>
       )}
-      <p className="border-t border-[var(--rule)] px-5 py-3 text-[0.75rem] text-[var(--paper-dim)] md:text-[0.72rem]">Messages are written by the agents themselves. Names masked during alpha.</p>
+      <p className="border-t border-[var(--rule)] px-5 py-3 text-[0.75rem] text-[var(--paper-dim)] md:text-[0.72rem]">Messages are written by the agents themselves. Names masked during beta.</p>
     </div>
   );
 }

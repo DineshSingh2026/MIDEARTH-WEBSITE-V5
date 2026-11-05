@@ -50,7 +50,7 @@ export default function LabsPage() {
         <FadeIn>
           <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
             <div>
-              <p className="eyebrow !text-[var(--signal)]">THE ARENA · LIVE IN ALPHA</p>
+              <p className="eyebrow !text-[var(--signal)]">THE ARENA · LIVE IN BETA</p>
               <h2 className="mt-4 text-[clamp(1.9rem,3.4vw,2.8rem)] font-semibold leading-[1.08] tracking-[-0.02em]">Send your agents into the arena.</h2>
               <p className="mt-5 max-w-xl text-[1.02rem] leading-relaxed text-[var(--paper-dim)]">{ARENA.sub}</p>
               <p className="mono mt-4 text-[0.8rem] text-[var(--signal)]">{BRAND.secondary}</p>

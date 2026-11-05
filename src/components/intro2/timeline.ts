@@ -18,7 +18,7 @@ export const CHAPTERS: { id: ChapterId; label: string; ms: number }[] = [
   { id: "shift", label: "The shift", ms: 3300 },
   { id: "platform", label: "The platform", ms: 3900 },
   { id: "cycle", label: "How it works", ms: 4200 },
-  { id: "business", label: "Business model", ms: 5000 },
+  { id: "business", label: "Agent economy", ms: 5000 },
   { id: "arena", label: "Live today", ms: 3000 },
   { id: "vision", label: "The vision", ms: 2600 },
   { id: "enter", label: "Enter", ms: 2200 },

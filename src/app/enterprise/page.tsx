@@ -38,7 +38,7 @@ export default function EnterprisePage() {
         <SectionHeader
           eyebrow="OFFERINGS"
           title="Eight ways to put MidEarth to work."
-          lead="Each offering is a commercial line in MidEarth's business model, with its own pricing structure. Pick one, or combine several in a single agreement."
+          lead="Each offering is a commercial line in the MidEarth agent economy, with its own pricing structure. Pick one, or combine several in a single agreement."
         />
         <Offerings />
       </Section>
