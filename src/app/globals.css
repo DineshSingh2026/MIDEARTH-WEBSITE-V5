@@ -1,26 +1,895 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ═══════════════════════════════════════════════════════════════════════
+   COLOUR THEMES — switch with <html data-theme="…"> (see content/themes.ts)
+   Same token names in every theme, so every component recolours itself.
+   Semantics hold everywhere:  --signal = live (green family)
+                               --agent  = agents / tech (cool family)
+                               --value  = money (gold family)
+                               --hot    = attention / regulatory (warm)
+   Brand roles:   --accent (primary buttons, focus, selection)
+                  --on-accent (text on --accent)  --kicker (section eyebrows)
+                  --shadow (drop-shadow colour)
+   Token values must stay literal hex — canvas sims read them via getComputedStyle.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── OBSIDIAN (default) — deep ink, signal green, cyan circuitry, gold for value ── */
+:root,
+[data-mode="field"],
+html[data-theme="obsidian"],
+html[data-theme="obsidian"] [data-mode="field"] {
+  --void: #04070b;
+  --deck: #090e14;
+  --deck-raise: #0f161e;
+  --rule: #161f28;
+  --rule-strong: #233039;
+  --paper: #e4ecef;
+  --paper-dim: #8d9ea8;
+  --signal: #2ee6a1;
+  --agent: #38c6e4;
+  --value: #e2b552;
+  --hot: #f2884a;
+  --frost: #b8dcf2;
+  --brand-blue: #2a86d8;
+  --brand-lime: #a0e436;
+  --accent: #2ee6a1;
+  --on-accent: #04070b;
+  --kicker: #2ee6a1;
+  --shadow: rgb(0 0 0 / 0.7);
+  --grid-alpha: 0.035;
+  --art-fade: 1;
+  color-scheme: dark;
+}
+
+/* ───────────── STANDS (legacy human-side daylight mode, kept working) ───────────── */
+[data-mode="stands"] {
+  --void: #fbfdfc;
+  --deck: #f2f6f5;
+  --deck-raise: #e9efee;
+  --rule: #cbd4d3;
+  --rule-strong: #b3bfbe;
+  --paper: #061014;
+  --paper-dim: #4e5a5e;
+  --signal: #067a4b;
+  --agent: #0b6e85;
+  --value: #8a6613;
+  --hot: #f44e04;
+  --frost: #2b5bd7;
+  --brand-blue: #0166a4;
+  --brand-lime: #5f9a0d;
+  --accent: #067a4b;
+  --on-accent: #ffffff;
+  --kicker: #067a4b;
+  --shadow: rgb(6 16 20 / 0.16);
+  --grid-alpha: 0.06;
+  color-scheme: light;
+}
+
+/* ── PORCELAIN — cool porcelain white, graphite ink, deepened jade & teal ── */
+html[data-theme="porcelain"] {
+  --void: #f5f6f4;
+  --deck: #ffffff;
+  --deck-raise: #eceeeb;
+  --rule: #e0e3df;
+  --rule-strong: #c9cec9;
+  --paper: #0d1418;
+  --paper-dim: #505b61;
+  --signal: #05795a;
+  --agent: #0b6a85;
+  --value: #8a6212;
+  --hot: #b4480f;
+  --frost: #2a5aa8;
+  --brand-blue: #1a62b0;
+  --brand-lime: #4f7f12;
+  --accent: #0d1418;
+  --on-accent: #f5f6f4;
+  --kicker: #05795a;
+  --shadow: rgb(13 20 24 / 0.14);
+  --grid-alpha: 0.055;
+  --art-fade: 0.4;
+  color-scheme: light;
+}
+/* live sims / agent-side insets stay dark on Porcelain: graphite ink panels */
+html[data-theme="porcelain"] [data-mode="field"] {
+  --void: #0d1418;
+  --deck: #131b20;
+  --deck-raise: #1a2329;
+  --rule: #222c32;
+  --rule-strong: #2f3b42;
+  --paper: #e9eeec;
+  --paper-dim: #95a2a7;
+  --signal: #3ddc9b;
+  --agent: #46bfdc;
+  --value: #e0b45a;
+  --hot: #ec8a52;
+  --frost: #b8d6ee;
+  --brand-blue: #2f86d4;
+  --brand-lime: #9fd94a;
+  --accent: #3ddc9b;
+  --on-accent: #0d1418;
+  --kicker: #3ddc9b;
+  --shadow: rgb(0 0 0 / 0.6);
+  --grid-alpha: 0.04;
+  color-scheme: dark;
+}
+
+/* ── TRAVERTINE — a mineral daylight. Limestone ground, bone paper cards, indigo graphite ink;
+      malachite = live, burnished brass = value, slate teal = agents, terracotta = attention,
+      lapis = data. Live sims sit in deep malachite lacquer panels (the "inkwell" of the page). ── */
+html[data-theme="travertine"] {
+  --void: #ece6db; /* limestone */
+  --deck: #f8f4ed; /* bone paper: cards lift off the stone */
+  --deck-raise: #e3dccf; /* honed stone: wells, chips, inputs */
+  --rule: #dbd3c5;
+  --rule-strong: #c4baa8;
+  --paper: #161a22; /* indigo graphite ink */
+  --paper-dim: #59564f; /* warm stone grey */
+  --signal: #0a6a4c; /* malachite */
+  --agent: #1a5c70; /* slate teal */
+  --value: #7a5915; /* burnished brass */
+  --hot: #a1401f; /* terracotta */
+  --frost: #35588c; /* lapis */
+  --brand-blue: #1d5fa8;
+  --brand-lime: #557b15;
+  --accent: #0f3d30; /* malachite lacquer buttons */
+  --on-accent: #f8f4ed;
+  --kicker: #0a6a4c;
+  --shadow: rgb(48 36 18 / 0.16);
+  --grid-alpha: 0.05;
+  --art-fade: 0.4;
+  color-scheme: light;
+}
+/* live sims / agent-side insets: deep malachite lacquer, bone type, the brand colours glowing in it */
+html[data-theme="travertine"] [data-mode="field"] {
+  --void: #0b1d17;
+  --deck: #0f241d;
+  --deck-raise: #142b23;
+  --rule: #1c362c;
+  --rule-strong: #284539;
+  --paper: #f1ece1;
+  --paper-dim: #a2aca4;
+  --signal: #4fdaa0;
+  --agent: #67c3d3;
+  --value: #e2b867;
+  --hot: #ec8f63;
+  --frost: #c6dcd6;
+  --brand-blue: #4a92d8;
+  --brand-lime: #a8d85a;
+  --accent: #4fdaa0;
+  --on-accent: #0b1d17;
+  --kicker: #4fdaa0;
+  --shadow: rgb(0 0 0 / 0.55);
+  --grid-alpha: 0.04;
+  color-scheme: dark;
+}
+
+/* ── AURUM — espresso black, champagne gold, ivory type ── */
+html[data-theme="aurum"],
+html[data-theme="aurum"] [data-mode="field"] {
+  --void: #0a0806;
+  --deck: #12100c;
+  --deck-raise: #1a1712;
+  --rule: #24201a;
+  --rule-strong: #353026;
+  --paper: #f0e8d8;
+  --paper-dim: #a59a87;
+  --signal: #7cc79b;
+  --agent: #8db9c6;
+  --value: #e3b45e;
+  --hot: #e08a5c;
+  --frost: #cfd8db;
+  --brand-blue: #5d90b8;
+  --brand-lime: #b7c46a;
+  --accent: #d5b878;
+  --on-accent: #0a0806;
+  --kicker: #d5b878;
+  --shadow: rgb(0 0 0 / 0.75);
+  --grid-alpha: 0.03;
+  color-scheme: dark;
+}
+
+/* ── SAPPHIRE — midnight navy, platinum, ice-blue circuitry ── */
+html[data-theme="sapphire"],
+html[data-theme="sapphire"] [data-mode="field"] {
+  --void: #050912;
+  --deck: #0a101d;
+  --deck-raise: #101829;
+  --rule: #182235;
+  --rule-strong: #253249;
+  --paper: #e7ebf2;
+  --paper-dim: #919db3;
+  --signal: #4fd6a2;
+  --agent: #63b9f2;
+  --value: #e4c07a;
+  --hot: #f09a6a;
+  --frost: #c3d5f3;
+  --brand-blue: #3f80e0;
+  --brand-lime: #a6dc60;
+  --accent: #e7ebf2;
+  --on-accent: #050912;
+  --kicker: #8fbcef;
+  --shadow: rgb(0 2 10 / 0.75);
+  --grid-alpha: 0.035;
+  color-scheme: dark;
+}
+
+/* ── EMERALD — forest black, bone type, emerald & brass ── */
+html[data-theme="emerald"],
+html[data-theme="emerald"] [data-mode="field"] {
+  --void: #060d0a;
+  --deck: #0b1510;
+  --deck-raise: #111e17;
+  --rule: #1a2820;
+  --rule-strong: #26372d;
+  --paper: #ebe5d6;
+  --paper-dim: #a09d8c;
+  --signal: #43cf8f;
+  --agent: #6cc3bd;
+  --value: #cfa95c;
+  --hot: #da8a52;
+  --frost: #cfe0d5;
+  --brand-blue: #3d8cbf;
+  --brand-lime: #a9cf5a;
+  --accent: #43cf8f;
+  --on-accent: #060d0a;
+  --kicker: #43cf8f;
+  --shadow: rgb(0 0 0 / 0.7);
+  --grid-alpha: 0.032;
+  color-scheme: dark;
+}
+
+/* ───────────── STANDS (human side, daylight) ───────────── */
+[data-mode="stands"] {
+  --void: #fbfdfc;
+  --deck: #f2f6f5;
+  --deck-raise: #e9efee;
+  --rule: #cbd4d3;
+  --rule-strong: #b3bfbe;
+  --paper: #061014;
+  --paper-dim: #4e5a5e;
+  --signal: #067a4b;
+  --agent: #0b6e85;
+  --value: #8a6613;
+  --hot: #f44e04;
+  --frost: #2b5bd7;
+  --brand-blue: #0166a4;
+  --brand-lime: #5f9a0d;
+  --grid-alpha: 0.06;
+  color-scheme: light;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-void: var(--void);
+  --color-deck: var(--deck);
+  --color-deck-raise: var(--deck-raise);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-paper: var(--paper);
+  --color-paper-dim: var(--paper-dim);
+  --color-signal: var(--signal);
+  --color-agent: var(--agent);
+  --color-value: var(--value);
+  --color-hot: var(--hot);
+  --color-frost: var(--frost);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+  --color-kicker: var(--kicker);
+  /* --font-display stays the Archivo brand face (wordmark, opening film). Headings, body and
+     data follow the active TYPE PAIRING (see "Type pairings" below / content/fonts.ts). */
+  --font-display: var(--font-archivo), "Arial Narrow", sans-serif;
+  --font-heading: var(--ff-heading);
+  --font-sans: var(--ff-sans);
+  --font-mono: var(--ff-mono);
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ───────────── Base ───────────── */
+html {
+  background: var(--void);
+  color: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+body {
+  background: var(--void);
+  color: var(--paper);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.55;
+  transition: background-color 0.6s var(--ease-expo), color 0.6s var(--ease-expo);
+  overflow-x: hidden;
+}
+@media (min-width: 1024px) {
+  body { font-size: 18px; }
+}
+::selection {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+:focus-visible {
+  outline: 1.5px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ───────────── Typography utilities ───────────── */
+.display {
+  font-family: var(--font-display);
+  font-variation-settings: "wdth" 100, "wght" 700;
+  letter-spacing: -0.02em;
+  line-height: 0.92;
+  text-transform: uppercase;
+}
+.display-hero {
+  font-size: clamp(3rem, 9vw, 10rem);
+}
+.display-xl {
+  font-size: clamp(2.6rem, 6.4vw, 7rem);
+}
+.display-l {
+  font-size: clamp(2rem, 4.2vw, 4.4rem);
+}
+.display-m {
+  font-size: clamp(1.5rem, 2.4vw, 2.4rem);
+}
+.wdth-sweep {
+  transition: font-variation-settings 0.9s var(--ease-expo);
+}
+.wdth-sweep:hover {
+  font-variation-settings: "wdth" 125, "wght" 800;
+}
+.mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: normal;
+  letter-spacing: var(--mono-track, 0.01em);
+}
+.eyebrow {
+  font-family: var(--eyebrow-ff, var(--font-mono));
+  font-size: var(--eyebrow-size, 0.72rem);
+  font-weight: var(--eyebrow-wght, 500);
+  letter-spacing: var(--eyebrow-track, 0.18em);
+  line-height: 1.4;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+  color: var(--paper-dim);
+}
+/* tabular figures for any live number set in the body face */
+.tabular-nums, .tnum { font-variant-numeric: tabular-nums lining-nums; }
+/* pull quotes / taglines: Ledger sets them in the serif italic (the editorial accent voice) */
+.quote {
+  font-family: var(--quote-ff, inherit);
+  font-style: var(--quote-style, italic);
+  font-weight: var(--quote-wght, 400);
+  letter-spacing: 0;
+}
+/* headline figures (stat tiles, prices, percentages): the pairing's figure face, tabular + lining */
+.num {
+  font-family: var(--num-ff, var(--font-sans));
+  font-weight: var(--num-wght, 500);
+  font-stretch: var(--num-stretch, 100%);
+  letter-spacing: var(--num-track, -0.02em);
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "kern", "tnum", "lnum";
+}
+.dim {
+  color: var(--paper-dim);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   TYPE PAIRINGS — switch with <html data-font="…"> (see content/fonts.ts).
+   Every pairing sets the same tokens: three families + the tweaks that make
+   each one sit right (heading weight, tracking by role, body rhythm, labels).
+   Headings follow role based tracking here (unlayered, so it wins over the
+   per page tracking utilities and the whole site speaks with one voice).
+   Body text never drops below 400; heading weights stay ≥ 500 so thin
+   strokes hold up on the light theme.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── LEDGER (default): Newsreader headlines · Inter body · IBM Plex Mono data ── */
+:root {
+  --ff-heading: var(--font-newsreader), "Iowan Old Style", Georgia, serif;
+  --ff-sans: var(--font-inter), system-ui, sans-serif;
+  --ff-mono: var(--font-plex-mono), ui-monospace, monospace;
+  --h-wght: 500; /* h1 / h2 */
+  --h3-wght: 560; /* h3 / h4 (small sizes need a touch more ink) */
+  --h-stretch: 100%;
+  --h1-track: -0.022em;
+  --h2-track: -0.016em;
+  --h3-track: -0.006em;
+  --h-feat: "kern", "liga", "lnum";
+  --body-lh: 1.62;
+  --body-track: -0.006em;
+  --body-feat: "kern", "calt", "cv11";
+  --mono-track: -0.005em;
+  --eyebrow-ff: var(--ff-sans);
+  --eyebrow-wght: 600;
+  --eyebrow-size: 0.7rem;
+  --eyebrow-track: 0.15em;
+  --num-ff: var(--ff-sans);
+  --num-wght: 500;
+  --num-track: -0.03em;
+  --num-stretch: 100%;
+  --quote-ff: var(--ff-heading);
+  --quote-style: italic;
+  --quote-wght: 400;
+  --quote-scale: 1.14;
+}
+
+/* ── MERIDIAN: Geist · Geist · Geist Mono ── */
+html[data-font="meridian"] {
+  --ff-heading: var(--font-geist), system-ui, sans-serif;
+  --ff-sans: var(--font-geist), system-ui, sans-serif;
+  --ff-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --h-wght: 600;
+  --h3-wght: 600;
+  --h-stretch: 100%;
+  --h1-track: -0.04em;
+  --h2-track: -0.032em;
+  --h3-track: -0.016em;
+  --h-feat: "kern", "liga", "ss01";
+  --body-lh: 1.6;
+  --body-track: -0.008em;
+  --body-feat: "kern", "calt";
+  --mono-track: 0em;
+  --eyebrow-ff: var(--ff-mono);
+  --eyebrow-wght: 500;
+  --eyebrow-size: 0.7rem;
+  --eyebrow-track: 0.16em;
+  --num-ff: var(--ff-sans);
+  --num-wght: 500;
+  --num-track: -0.035em;
+  --num-stretch: 100%;
+  --quote-ff: var(--ff-sans);
+  --quote-style: normal;
+  --quote-wght: 500;
+  --quote-scale: 1;
+}
+
+/* ── ATLAS: Mona Sans Expanded headlines · Mona Sans body · JetBrains Mono data ── */
+html[data-font="atlas"] {
+  --ff-heading: var(--font-mona), system-ui, sans-serif;
+  --ff-sans: var(--font-mona), system-ui, sans-serif;
+  --ff-mono: var(--font-jetbrains), ui-monospace, monospace;
+  --h-wght: 640;
+  --h3-wght: 620;
+  --h-stretch: 105%;
+  --h1-track: -0.036em;
+  --h2-track: -0.024em;
+  --h3-track: -0.008em;
+  --h-feat: "kern", "liga";
+  --body-lh: 1.6;
+  --body-track: 0em;
+  --body-feat: "kern", "calt";
+  --mono-track: 0.005em;
+  --eyebrow-ff: var(--ff-mono);
+  --eyebrow-wght: 500;
+  --eyebrow-size: 0.7rem;
+  --eyebrow-track: 0.18em;
+  --num-ff: var(--ff-sans);
+  --num-wght: 600;
+  --num-track: -0.025em;
+  --num-stretch: 108%;
+  --quote-ff: var(--ff-sans);
+  --quote-style: italic;
+  --quote-wght: 450;
+  --quote-scale: 1;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  line-height: var(--body-lh);
+  letter-spacing: var(--body-track);
+  font-feature-settings: var(--body-feat);
+  font-variant-numeric: lining-nums;
+}
+p, li, dd, blockquote { text-wrap: pretty; }
+
+/* headings: the pairing's heading face; `font-semibold` / `font-bold` resolve to its weights */
+:where(h1, h2, h3, h4, h5, h6):not(.display) {
+  font-family: var(--font-heading);
+  font-stretch: var(--h-stretch);
+  font-feature-settings: var(--h-feat);
+  text-wrap: balance;
+}
+:where(h1, h2):not(.display) {
+  --font-weight-medium: var(--h-wght);
+  --font-weight-semibold: var(--h-wght);
+  --font-weight-bold: var(--h-wght);
+}
+:where(h3, h4, h5, h6):not(.display) {
+  --font-weight-medium: var(--h3-wght);
+  --font-weight-semibold: var(--h3-wght);
+  --font-weight-bold: var(--h3-wght);
+}
+h1:not(.display) { letter-spacing: var(--h1-track); }
+h2:not(.display) { letter-spacing: var(--h2-track); }
+h3:not(.display),
+h4:not(.display) { letter-spacing: var(--h3-track); }
+/* text set in the mono face inside a heading keeps mono metrics */
+:is(h1, h2, h3, h4) .mono { font-stretch: 100%; letter-spacing: var(--mono-track); }
+
+/* ───────────── Graphic language ───────────── */
+.grid-bg {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--paper) calc(var(--grid-alpha) * 100%), transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--paper) calc(var(--grid-alpha) * 100%), transparent) 1px, transparent 1px);
+  background-size: calc(100% / 40) calc(100% / 40);
+}
+.hairline {
+  border-color: var(--rule);
+}
+/* Registration tick marks on card corners */
+.ticks {
+  position: relative;
+}
+.ticks::before,
+.ticks::after {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  pointer-events: none;
+  border-color: var(--paper-dim);
+  opacity: 0.7;
+}
+.ticks::before {
+  top: -1px;
+  left: -1px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+.ticks::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+}
+.shell {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  /* safe-area aware (viewport-fit=cover): keeps copy clear of the notch on landscape phones */
+  padding-left: max(16px, env(safe-area-inset-left));
+  padding-right: max(16px, env(safe-area-inset-right));
+}
+@media (min-width: 768px) {
+  .shell { padding-left: max(24px, env(safe-area-inset-left)); padding-right: max(24px, env(safe-area-inset-right)); }
+}
+@media (min-width: 1280px) {
+  .shell { padding-left: max(40px, env(safe-area-inset-left)); padding-right: max(40px, env(safe-area-inset-right)); }
+}
+
+/* LED dot */
+.led {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: currentColor;
+  box-shadow: 0 0 0 0 currentColor;
+  animation: led 2.4s steps(12) infinite;
+}
+@keyframes led {
+  0% { box-shadow: 0 0 0 0 color-mix(in oklab, currentColor 60%, transparent); }
+  70% { box-shadow: 0 0 0 7px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+/* Film grain overlay */
+.grain {
+  pointer-events: none;
+  position: fixed;
+  inset: -50%;
+  z-index: 60;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+  animation: grain 1s steps(6) infinite;
+}
+[data-mode="stands"] .grain,
+html[data-theme="porcelain"] .grain { opacity: 0.025; }
+html[data-theme="travertine"] .grain { opacity: 0.035; } /* a touch of stone tooth */
+@keyframes grain {
+  0% { transform: translate(0, 0); }
+  20% { transform: translate(-3%, 2%); }
+  40% { transform: translate(2%, -4%); }
+  60% { transform: translate(-4%, -1%); }
+  80% { transform: translate(3%, 3%); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Reduced motion — honour both OS setting and in-site toggle */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+html[data-motion="off"] *,
+html[data-motion="off"] *::before,
+html[data-motion="off"] *::after {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+}
+
+/* Hide native cursor where custom crosshair active */
+html[data-cursor="grid"] body,
+html[data-cursor="grid"] a,
+html[data-cursor="grid"] button {
+  cursor: none;
+}
+
+/* never allow sideways page scroll on phones */
+html, body { overflow-x: clip; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   MOTION SYSTEM (v2). One easing, one duration family. Transform/opacity/filter
+   only, so nothing reflows (no CLS). Kit components toggle these classes; once a
+   reveal has finished the class is removed so hover transitions are untouched.
+   ═══════════════════════════════════════════════════════════════════════ */
+:root {
+  --rv-dur: 500ms;
+  --rv-step: 50ms;
+  --rv-rise: 12px;
+}
+.rv,
+.rv-stagger > * {
+  opacity: 0;
+  transform: translate3d(0, var(--rv-rise), 0);
+  filter: blur(2px);
+  transition:
+    opacity var(--rv-dur) var(--ease-expo) var(--rv-delay, 0ms),
+    transform var(--rv-dur) var(--ease-expo) var(--rv-delay, 0ms),
+    filter calc(var(--rv-dur) * 0.75) var(--ease-expo) var(--rv-delay, 0ms);
+}
+.rv.rv-in,
+.rv-stagger.rv-in > * {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+/* staggered children: 50ms steps, capped so long lists never feel slow */
+.rv-stagger > :nth-child(2) { --rv-delay: calc(var(--rv-base, 0ms) + var(--rv-step) * 1); }
+.rv-stagger > :nth-child(3) { --rv-delay: calc(var(--rv-base, 0ms) + var(--rv-step) * 2); }
+.rv-stagger > :nth-child(4) { --rv-delay: calc(var(--rv-base, 0ms) + var(--rv-step) * 3); }
+.rv-stagger > :nth-child(5) { --rv-delay: calc(var(--rv-base, 0ms) + var(--rv-step) * 4); }
+.rv-stagger > :nth-child(6) { --rv-delay: calc(var(--rv-base, 0ms) + var(--rv-step) * 5); }
+.rv-stagger > :nth-child(7) { --rv-delay: calc(var(--rv-base, 0ms) + var(--rv-step) * 6); }
+.rv-stagger > :nth-child(n + 8) { --rv-delay: calc(var(--rv-base, 0ms) + var(--rv-step) * 7); }
+.rv-stagger > :first-child { --rv-delay: var(--rv-base, 0ms); }
+
+/* Section hand-off: a hairline draws across the top edge as the section arrives,
+   with a faint band of light under it, so one section visibly hands over to the next. */
+.sec-seam {
+  position: absolute;
+  inset: -1px 0 auto 0;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, color-mix(in oklab, var(--seam, var(--kicker)) 85%, transparent) 20%, color-mix(in oklab, var(--paper) 30%, transparent) 62%, transparent);
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  opacity: 1;
+  transition: transform 0.9s var(--ease-expo) 40ms;
+}
+.sec-seam::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 220px;
+  background: radial-gradient(42% 100% at 26% 0%, color-mix(in oklab, var(--seam, var(--kicker)) var(--seam-glow, 11%), transparent), transparent 75%);
+  opacity: 0;
+  transition: opacity 0.9s var(--ease-expo) 100ms;
+}
+/* a bright head runs along the seam once as the section arrives */
+.sec-seam::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 160px;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, transparent, var(--seam, var(--kicker)));
+  box-shadow: 0 0 14px 2px color-mix(in oklab, var(--seam, var(--kicker)) var(--seam-halo, 55%), transparent);
+  opacity: 0;
+}
+.sec-seam.rv-in { transform: none; }
+.sec-seam.rv-in::after { opacity: 1; }
+.sec-seam.rv-in::before { animation: seam-run 1s var(--ease-expo) 40ms both; }
+@keyframes seam-run {
+  0% { transform: translateX(-160px); opacity: 0; }
+  12% { opacity: 1; }
+  80% { opacity: 0.9; }
+  100% { transform: translateX(calc(100vw - 80px)); opacity: 0; }
+}
+
+/* animated underline for text links / ghost buttons */
+.ulink {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  transition: background-size 0.45s var(--ease-expo);
+}
+.group:hover .ulink,
+.group:focus-visible .ulink,
+a.ulink:hover,
+a.ulink:focus-visible { background-size: 100% 1px; }
+
+/* data backgrounds: quieter on phones where text spans the full width */
+@media (max-width: 767px) {
+  .me-bg { opacity: 0.32 !important; }
+}
+
+/* ═════════ MOTION PASS 2 — presence without noise ═════════ */
+
+/* seams per theme: on light stone/porcelain a green glow greys out, so tint it warmer and keep it thin */
+html[data-theme="porcelain"] { --seam: var(--signal); --seam-glow: 6%; --seam-halo: 30%; }
+html[data-theme="travertine"] { --seam: color-mix(in oklab, var(--signal) 70%, var(--value)); --seam-glow: 5%; --seam-halo: 28%; }
+html[data-theme="porcelain"] [data-mode="field"], html[data-theme="travertine"] [data-mode="field"] { --seam: var(--kicker); --seam-glow: 11%; --seam-halo: 55%; }
+
+/* data backgrounds arrive with the section: fade up + settle from a slight zoom */
+.me-bg canvas {
+  opacity: 0;
+  transform: translate3d(0, 10px, 0);
+  transition: opacity 0.6s var(--ease-expo) 80ms, transform 0.6s var(--ease-expo) 80ms;
+}
+.me-bg[data-on] canvas { opacity: 1; transform: none; }
+/* atmosphere: a very slow light leak behind each data scene, tinted by the scene's key light (dark themes),
+   a faint mineral shading on light grounds. CSS only; transform-only drift; sits inside the section mask. */
+.me-aura {
+  position: absolute;
+  inset: -10% -6% -10% 30%;
+  pointer-events: none;
+  background:
+    radial-gradient(38% 46% at 64% 42%, color-mix(in oklab, var(--aura, var(--agent)) 13%, transparent), transparent 72%),
+    radial-gradient(30% 36% at 84% 70%, color-mix(in oklab, var(--value) 7%, transparent), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.6s var(--ease-expo) 80ms;
+  animation: aura-drift 38s ease-in-out infinite alternate;
+}
+.me-bg[data-on] .me-aura { opacity: 1; }
+html[data-theme="porcelain"] .me-aura,
+html[data-theme="travertine"] .me-aura,
+[data-mode="stands"] .me-aura {
+  background: radial-gradient(40% 48% at 66% 44%, color-mix(in oklab, var(--paper) 4%, transparent), transparent 72%);
+}
+@keyframes aura-drift {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  100% { transform: translate3d(-4%, 3%, 0) scale(1.08); }
+}
+html[data-motion="off"] .me-aura { animation: none; opacity: 1; transition: none; }
+@media (prefers-reduced-motion: reduce) { .me-aura { animation: none; opacity: 1; transition: none; } }
+
+/* split headline: words rise out of a clip, one measured line after another */
+.split .sw {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding: 0 0.06em 0.12em 0;
+  margin: 0 -0.06em -0.12em 0;
+}
+.split .sw-i {
+  display: inline-block;
+  transform: translate3d(0, 105%, 0);
+  transform-origin: 0 100%;
+  transition: transform 0.5s var(--ease-expo);
+  transition-delay: calc(var(--sd, 0ms) + 40ms + var(--li, 0) * 60ms + var(--wi, 0) * 12ms);
+}
+.split[data-in] .sw-i { transform: none; }
+
+/* figures: iris reveal on enter, slow scroll parallax, zoom on hover */
+.fig-frame { clip-path: inset(6% 5% 6% 5% round 18px); transition: clip-path 0.55s var(--ease-expo) 40ms; }
+.fig-frame[data-in] { clip-path: inset(0 0 0 0 round 16px); }
+.fig-frame.fig-bare, .fig-frame.fig-bare[data-in] { clip-path: none; }
+.fig-par { position: absolute; inset: -7% 0; transform: translate3d(0, calc((0.5 - var(--sp, 0.5)) * 9%), 0); will-change: transform; }
+.fig-zoom { position: absolute; inset: 0; transform: scale(1.06); transition: transform 0.55s var(--ease-expo) 40ms; }
+.fig-frame[data-in] .fig-zoom, .fig-bare .fig-zoom { transform: scale(1.02); }
+.group:hover .fig-zoom, .fig-frame:hover .fig-zoom { transform: scale(1.05); transition-duration: 0.5s; transition-delay: 0ms; }
+
+/* primary CTA: magnetic lean + light sweep */
+.btn-mag { transform: translate3d(var(--mgx, 0px), var(--mgy, 0px), 0); }
+.btn-mag:hover { box-shadow: 0 10px 30px -12px color-mix(in oklab, var(--accent) 70%, transparent); }
+.btn-sheen { position: relative; overflow: hidden; isolation: isolate; }
+.btn-sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(105deg, transparent 30%, rgb(255 255 255 / 0.35) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform 0.9s var(--ease-expo);
+}
+.btn-sheen:hover::after, .btn-sheen:focus-visible::after { transform: translateX(120%); }
+
+/* interactive cards: lift + a soft light that follows the pointer + accent edge */
+.me-spot { position: relative; }
+.me-spot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(360px circle at var(--mx, 50%) var(--my, 0%), color-mix(in oklab, var(--kicker) 12%, transparent), transparent 65%);
+  opacity: 0;
+  transition: opacity 0.45s var(--ease-expo);
+}
+.me-spot:hover::after, .me-spot:focus-visible::after { opacity: 1; }
+.me-spot:hover { border-color: color-mix(in oklab, var(--kicker) 38%, var(--rule-strong)) !important; }
+
+/* focus: a clear, branded ring everywhere */
+a:focus-visible, button:focus-visible, [tabindex]:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+/* diagram cards: drawn open when they enter view */
+.dg-in { clip-path: inset(0 100% 0 0 round 16px); transition: clip-path 0.55s var(--ease-expo) 40ms; }
+.dg-in[data-in] { clip-path: inset(0 0 0 0 round 16px); }
+
+/* ── signature moments (scroll progress `--sp`, written by useScrub) ── */
+/* Business model: 14 ribbons draw left → right in order, pillar nodes light when their streams arrive */
+.rf-scrub .rf-rib { clip-path: inset(0 calc((1 - clamp(0, (var(--sp, 1) * 1.6 - var(--ri, 0) * 0.045) * 2.4, 1)) * 100%) 0 0); }
+.rf-scrub .rf-node { opacity: clamp(0.25, (var(--sp, 1) * 1.6 - 0.45 - var(--pi, 0) * 0.08) * 3, 1); }
+
+/* Arena: the chain is touched twice — deposit draws, the loop spins up, withdrawal draws, in scroll order */
+.cd-scrub .cd-dep { stroke-dasharray: 1; stroke-dashoffset: calc(1 - clamp(0, var(--sp, 1) * 3, 1)); }
+.cd-scrub .cd-b1 { opacity: clamp(0.15, (var(--sp, 1) - 0.25) * 8, 1); }
+.cd-scrub .cd-loop { opacity: clamp(0.15, (var(--sp, 1) - 0.33) * 5, 1); transform-box: fill-box; transform-origin: center; transform: rotate(calc(var(--sp, 1) * 540deg)); }
+.cd-scrub .cd-wd { stroke-dasharray: 1; stroke-dashoffset: calc(1 - clamp(0, (var(--sp, 1) - 0.55) * 3, 1)); }
+.cd-scrub .cd-b2 { opacity: clamp(0.15, (var(--sp, 1) - 0.82) * 8, 1); }
+.cd-scrub .cd-tok { opacity: clamp(0, (var(--sp, 1) - 0.86) * 9, 1); }
+
+/* Platform: the four layers assemble bottom-up into one stack as you scroll in */
+.eco-scrub .eco-layer {
+  --lp: clamp(0, (var(--sp, 1) * 1.5 - (3 - var(--li, 0)) * 0.16) * 2.2, 1);
+  opacity: calc(0.15 + var(--lp) * 0.85);
+  transform: translate3d(calc((1 - var(--lp)) * 48px), calc((1 - var(--lp)) * -26px), 0) scale(calc(0.96 + var(--lp) * 0.04));
+}
+.eco-scrub .eco-rail { transform: scaleY(clamp(0, var(--sp, 1) * 1.4, 1)); transform-origin: top; }
+
+/* Investors: roadmap steps light up in order */
+.rm-scrub .rm-step { --st: clamp(0, (var(--sp, 1) * 1.3 - var(--si, 0)) * 4, 1); }
+.rm-scrub .rm-bar { transform: scaleX(var(--st)); transform-origin: left; }
+.rm-scrub .rm-step { opacity: calc(0.35 + var(--st) * 0.65); }
+.rm-scrub .rm-num { color: color-mix(in oklab, var(--signal) calc(var(--st) * 100%), var(--paper-dim)); }
+
+/* reduced motion: everything is simply there */
+html[data-motion="off"] .rv,
+html[data-motion="off"] .rv-stagger > *,
+html[data-motion="off"] .sec-seam {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  transition: none;
+}
+html[data-motion="off"] .sec-seam::after { opacity: 1; transition: none; }
+html[data-motion="off"] .sec-seam::before { animation: none; opacity: 0; }
+html[data-motion="off"] .me-bg canvas,
+html[data-motion="off"] .split .sw-i,
+html[data-motion="off"] .fig-zoom,
+html[data-motion="off"] .fig-par,
+html[data-motion="off"] .btn-mag { transform: none !important; transition: none !important; opacity: 1; }
+html[data-motion="off"] .fig-frame,
+html[data-motion="off"] .dg-in { clip-path: none !important; transition: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  .rv,
+  .rv-stagger > *,
+  .sec-seam { opacity: 1; transform: none; filter: none; transition: none; }
+  .sec-seam::before { animation: none; opacity: 0; }
+  .me-bg canvas, .split .sw-i, .fig-zoom, .fig-par, .btn-mag { transform: none !important; transition: none !important; opacity: 1; }
+  .fig-frame, .dg-in { clip-path: none !important; transition: none !important; }
+}
+
+/* light themes: the top bar sits over the dark full-bleed hero, so give it a solid ground */
+html[data-theme="porcelain"] header.fixed.top-0,
+html[data-theme="travertine"] header.fixed.top-0 {
+  background: color-mix(in oklab, var(--void) 94%, transparent) !important;
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--rule) !important;
 }

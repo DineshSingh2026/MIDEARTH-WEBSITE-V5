@@ -1,0 +1,109 @@
+/* S9 — ring of light around the arena */
+.ringWrap {
+  perspective: 1400px;
+}
+.ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  transform: rotateX(74deg);
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    color-mix(in oklab, var(--signal) 70%, transparent) 40deg,
+    color-mix(in oklab, var(--agent) 60%, transparent) 110deg,
+    transparent 170deg,
+    color-mix(in oklab, var(--value) 55%, transparent) 230deg,
+    transparent 300deg,
+    color-mix(in oklab, var(--signal) 40%, transparent) 340deg,
+    transparent 360deg
+  );
+  -webkit-mask: radial-gradient(closest-side, transparent 93%, #000 95.5%, #000 97%, transparent 100%);
+  mask: radial-gradient(closest-side, transparent 93%, #000 95.5%, #000 97%, transparent 100%);
+  filter: blur(0.6px);
+}
+.ringSpin {
+  animation: spin 24s linear infinite;
+}
+.ringHair {
+  position: absolute;
+  inset: 3%;
+  border-radius: 50%;
+  transform: rotateX(74deg);
+  border: 1px solid var(--rule-strong);
+}
+@keyframes spin {
+  to {
+    transform: rotateX(74deg) rotateZ(360deg);
+  }
+}
+
+/* chat ticker */
+.marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee var(--dur, 60s) linear infinite;
+}
+.ticker:hover .marquee,
+.ticker:focus-within .marquee {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.fadeEdges {
+  -webkit-mask: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+  mask: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+}
+
+/* S8 micro-illustrations: strokes draw in on activation */
+.draw :is(path, line, polyline, circle, rect) {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw 1.4s var(--ease-expo) forwards;
+}
+.draw :nth-child(2) { animation-delay: 0.08s; }
+.draw :nth-child(3) { animation-delay: 0.16s; }
+.draw :nth-child(4) { animation-delay: 0.24s; }
+.draw :nth-child(5) { animation-delay: 0.32s; }
+.draw :nth-child(6) { animation-delay: 0.4s; }
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}
+
+/* S7 money flow: a gold packet travels the value path */
+.flowTrack {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, color-mix(in oklab, var(--value) 60%, transparent), color-mix(in oklab, var(--value) 25%, transparent) 50%, color-mix(in oklab, var(--value) 60%, transparent));
+}
+.flowPacket {
+  position: absolute;
+  top: -3px;
+  width: 7px;
+  height: 7px;
+  margin-left: -3.5px;
+  background: var(--value);
+  transform: rotate(45deg);
+  box-shadow: 0 0 12px var(--value);
+  animation: flow 7s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+}
+@keyframes flow {
+  0% { left: 0%; opacity: 0; }
+  5% { opacity: 1; }
+  95% { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+.flowPacketV {
+  animation-name: flowV;
+}
+@keyframes flowV {
+  0% { top: 0%; opacity: 0; }
+  5% { opacity: 1; }
+  95% { opacity: 1; }
+  100% { top: 100%; opacity: 0; }
+}

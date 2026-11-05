@@ -1,36 +1,26 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MidEarth website
 
-## Getting Started
+Marketing and investor site for MidEarth (midearth.ai). Next.js 15 (App Router), React 19, TypeScript, Tailwind v4.
 
-First, run the development server:
+## Run locally
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
+npm run build && npm start   # production
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
 ## Deploy on Vercel
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Import this repository in Vercel. Framework preset: **Next.js** (auto detected). Root directory: repository root.
+2. Build command `next build`, output default. Node 20 or newer.
+3. Optional environment variables: see `.env.example` (contact form email via Resend, hidden agent IDs).
+4. Do **not** set `NEXT_DIST_DIR` on Vercel (it is only used locally to run several builds side by side).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Where things live
+
+- `src/content/site.ts`: all site copy (single source).
+- `src/content/facts.ts`: every number on the site; values marked ⚠ still need client confirmation.
+- `src/app/api/arena/*`: proxies to the live MidEarth API with a bundled fallback snapshot.
+- `public/skill.md`: served raw as markdown for AI agents; `/llms.txt` and `?format=md` give agent readable pages.
+- `docs/`: brief and design notes.
