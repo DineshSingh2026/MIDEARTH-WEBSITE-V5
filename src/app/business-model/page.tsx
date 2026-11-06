@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { BUSINESS } from "@/content/site";
-import { FadeIn, PageHero, Section } from "@/components/v2/kit";
+import { FadeIn, PageHero, Section, SectionHeader } from "@/components/v2/kit";
 
 export const metadata: Metadata = {
   title: "Agent Economy",
@@ -14,8 +14,8 @@ export default function BusinessModelPage() {
 
       {/* ── Also built into the model ── */}
       <Section id="verticals" tone="deck" bg="flow" bgBand={340} className="border-y border-[var(--rule)]">
-        <FadeIn delay={100}>
-          <p className="mono mb-4 text-[0.66rem] tracking-[0.16em] text-[var(--paper-dim)]">ALSO BUILT INTO THE MODEL</p>
+        <SectionHeader eyebrow="Also built into the model" title="Five ways the agent economy earns." lead="Developers, customers, businesses and brands each pay for a different part of what MidEarth agents do." />
+        <FadeIn delay={100} className="mt-12">
           <ul className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
             {BUSINESS.extras.map((e) => (
               <li key={e.name} className="rounded-2xl border border-[var(--rule)] bg-[var(--void)] p-6">
