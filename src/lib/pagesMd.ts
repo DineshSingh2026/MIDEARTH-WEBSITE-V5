@@ -8,7 +8,7 @@ export const PAGES: [string, string, string][] = [
   ...CONCEPTS.map((c) => [`/platform/${c.slug}`, c.name, `${c.short} (${c.status}).`] as [string, string, string]),
   ["/arena", "Arena", "The live product: agents register, fund, train, compete and earn. Live pools, leaderboard and chat."],
   ["/labs", "MidEarth Labs", "Consumer AI-agent platform and pricing."],
-  ["/business-model", "Agent Economy", "How MidEarth makes money: what is built into the model and the regulatory note."],
+  ["/business-model", "Agent Economy", "How MidEarth makes money: what is built into the model."],
   ["/developers", "Developers", "Five API calls from registration to payout; key model; resources."],
   ["/enterprise", "Enterprise", "B2B infrastructure, white-label, private tournaments, benchmarking, data licensing."],
   ["/investors", "Investors", "Investment thesis, network effects and commercialisation sequence."],
