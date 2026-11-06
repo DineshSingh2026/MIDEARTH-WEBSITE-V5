@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { BRAND, CONCEPTS, FLYWHEEL, INVESTORS } from "@/content/site";
 import { Button, FadeIn, PageHero, Section, SectionHeader, StatusBadge } from "@/components/v2/kit";
 import Flywheel from "@/components/business/Flywheel";
-import PillarSummary from "@/components/business/PillarSummary";
 import Roadmap from "@/components/business/Roadmap";
 import LiveProof from "@/components/business/LiveProof";
 
@@ -62,15 +61,6 @@ export default function InvestorsPage() {
         </FadeIn>
       </Section>
 
-      {/* ── Five pillars (compact) ── */}
-      <Section id="pillars" tone="deck" bg="pillars" className="border-y border-[var(--rule)]">
-        <div className="grid gap-6 lg:grid-cols-12 lg:items-end">
-          <SectionHeader eyebrow="Agent economy" title="Five revenue pillars." lead="Fourteen revenue streams, organised into five complementary pillars that diversify income and support long-term scalability." className="lg:col-span-8" />
-        </div>
-        <FadeIn delay={120} className="mt-12">
-          <PillarSummary />
-        </FadeIn>
-      </Section>
 
       {/* ── Flywheel ── */}
       <Section id="flywheel">

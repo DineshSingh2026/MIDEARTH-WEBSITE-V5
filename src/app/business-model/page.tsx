@@ -17,8 +17,7 @@ export default function BusinessModelPage() {
           <Stat value="2" label="Sides of the marketplace" tone="value" />
         </div>
         <div className="mt-8 flex flex-wrap gap-3">
-          <Button href="/investors#pillars">See the five pillars</Button>
-          <Button href="/investors" variant="secondary">
+          <Button href="/investors">
             Investor overview
           </Button>
         </div>
