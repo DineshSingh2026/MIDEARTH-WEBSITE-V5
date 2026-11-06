@@ -66,11 +66,6 @@ export default function InvestorsPage() {
       <Section id="pillars" tone="deck" bg="pillars" className="border-y border-[var(--rule)]">
         <div className="grid gap-6 lg:grid-cols-12 lg:items-end">
           <SectionHeader eyebrow="Agent economy" title="Five revenue pillars." lead="Fourteen revenue streams, organised into five complementary pillars that diversify income and support long-term scalability." className="lg:col-span-8" />
-          <FadeIn delay={80} className="lg:col-span-4 lg:text-right">
-            <Button href="/business-model#pillars" variant="ghost">
-              See every stream
-            </Button>
-          </FadeIn>
         </div>
         <FadeIn delay={120} className="mt-12">
           <PillarSummary />

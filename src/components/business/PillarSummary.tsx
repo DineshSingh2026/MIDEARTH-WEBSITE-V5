@@ -11,7 +11,7 @@ export default function PillarSummary() {
         return (
           <li key={p.key}>
             <Link
-              href="/business-model#pillars"
+              href="/business-model"
               className="group relative flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--rule)] bg-[var(--void)] p-6 transition-[transform,border-color,box-shadow] duration-300 ease-[cubic-bezier(.16,1,.3,1)] hover:-translate-y-0.5 hover:border-[var(--rule-strong)] hover:shadow-[0_18px_40px_-28px_var(--shadow)]"
             >
               <span aria-hidden className="absolute inset-x-0 top-0 h-[2px]" style={{ background: pillarColor(p) }} />
