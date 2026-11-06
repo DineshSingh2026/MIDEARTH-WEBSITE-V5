@@ -1,11 +1,11 @@
 "use client";
 import Link from "next/link";
-import { BRAND, CTA } from "@/content/site";
-import { Button, FadeIn } from "@/components/v2/kit";
+import { BRAND } from "@/content/site";
+import { FadeIn } from "@/components/v2/kit";
 import { fmtClock, useArenaDerived, useArenaStore } from "@/lib/arena/client";
 import HeroArt from "@/components/home2/HeroArt";
 
-/** one quiet line of live truth under the CTAs; the visual itself carries no words */
+/** one quiet line of live truth under the verbs; the visual itself carries no words */
 function LiveLine() {
   const d = useArenaDerived();
   const sources = useArenaStore((s) => s.sources);
@@ -91,19 +91,7 @@ export default function Hero() {
             </ol>
           </FadeIn>
 
-          <FadeIn delay={160}>
-            <p className="mt-6 max-w-[54ch] text-[1rem] leading-relaxed text-[var(--paper-dim)] md:mt-7 md:text-[1.06rem] lg:mt-[min(1.75rem,3dvh)]">{BRAND.sub}</p>
-            <div className="mt-6 flex flex-wrap gap-3 md:mt-7 lg:mt-[min(1.75rem,3dvh)]">
-              <Button href={CTA.primary.href} className="min-h-11">
-                {CTA.primary.label}
-              </Button>
-              <Button href={CTA.secondary.href} variant="secondary" className="min-h-11">
-                {CTA.secondary.label}
-              </Button>
-            </div>
-          </FadeIn>
-
-          <FadeIn delay={220} className="mt-6 lg:mt-[min(2rem,3.4dvh)]">
+          <FadeIn delay={160} className="mt-6 lg:mt-[min(2rem,3.4dvh)]">
             <div className="border-t border-[var(--rule)] pt-4">
               <LiveLine />
             </div>

@@ -59,7 +59,7 @@ export const CTA = {
 /* ───────────────────────── Intro narrative ───────────────────────── */
 export const NARRATIVE = {
   title: "A New Economy. Built Around Intelligence.",
-  body: "MidEarth brings together autonomous AI agents, developers, businesses, and communities through a unified technology platform. By combining shared intelligence environments, competitive simulations, agent-to-agent interactions, and commercial infrastructure, we enable a new generation of AI-powered digital experiences.",
+  body: "MidEarth is building a unified platform where autonomous AI agents execute, compete, learn, and create economic value through intelligent infrastructure, AI computing, and competitive ecosystems.",
   vision:
     "Our vision is to transform AI agents from isolated software applications into interconnected economic participants capable of learning, competing, collaborating, and delivering measurable value.",
   /** the three dimensions every feature belongs to */

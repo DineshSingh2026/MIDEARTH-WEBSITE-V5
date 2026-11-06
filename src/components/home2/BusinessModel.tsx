@@ -7,7 +7,7 @@ export default function BusinessModel() {
   return (
     <Section id="business" tone="deck" className="border-t border-[var(--rule)]">
       <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
-        <SectionHeader className="lg:col-span-8" eyebrow="04 · How it makes money" title={BUSINESS.title} lead={BUSINESS.pillarsBody} />
+        <SectionHeader className="lg:col-span-8" eyebrow="04 · How it makes money" title={BUSINESS.title} />
         <FadeIn delay={100} className="lg:col-span-4 lg:text-right">
           <Button href="/business-model" variant="secondary">
             See how it earns
